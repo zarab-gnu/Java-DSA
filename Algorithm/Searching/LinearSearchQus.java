@@ -94,4 +94,66 @@ public class LinearSearchQus {
     }
     return new int[]{-1,-1};
    }
+
+   
+   // separate class (run separately with main function added)
+
+    // Leetcode problem: 1672. Richest Customer Wealth
+
+   class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int max=0;
+        for(int n:wealth(accounts)){
+            if(n>max){
+                max=n;
+            }
+        }
+        return max;
+    }
+
+    int[] wealth(int[][]accounts){
+        int[] total=new int[accounts.length];
+        int cash;
+        for(int i=0;i<accounts.length;i++){
+            cash=0;
+            for(int j=0;j<accounts[i].length;j++){
+                cash+=accounts[i][j];
+            }
+            total[i]=cash;
+        }
+        return total;
+    }
+}
+
+   // 1295. Find Numbers with Even Number of Digits
+
+   class Solution {
+        public int findNumbers(int[] nums) {
+            int count = 0;
+            for (int num : nums) {
+                if (even(num)) {
+                    count++;
+                }
+            }
+            return count;
+        }
+
+        boolean even(int num) {
+            if (digits(num) % 2 == 0)
+                return true;
+            return false;
+        }
+
+        int digits(int num) {
+            int count = 0;
+            while (num > 0) {
+                count++;
+                num = num / 10;
+            }
+            return count;
+        }
+
+}
+
+
 }
